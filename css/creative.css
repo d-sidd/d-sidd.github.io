@@ -187,8 +187,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #344253;
-    /*background-image: url(../img/timj-gM6k0JmHIBE-unsplash_transparence_07.jpg);*/
-        background-image: url(../img/sergey-shmidt-koy6FlCCy5s-unsplash_7.png);
+    background-image: url(../img/timj-gM6k0JmHIBE-unsplash_transparence_07.jpg);
 
     background-position: center;
     -webkit-background-size: cover;
