@@ -491,3 +491,164 @@ body {
     overflow: visible;
     position: relative;
 }
+
+/* ========= Start Skill ======= */
+
+.skill-progress-bar {
+  /*margin-top: 20px;*/
+}
+
+.skillbar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background: #344253;
+  /*border: 2px solid #6f6f6f;*/
+  height: 5px;
+  border-radius: 22px;
+  -moz-border-radius: 22px;
+  -webkit-border-radius: 22px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  -webkit-transition-property: width, background-color;
+  transition-property: width, background-color;
+}
+
+.no-js .first-skill {
+  width: 98%;
+}
+
+.no-js .second-skill {
+  width: 85%;
+}
+
+.no-js .third-skill {
+  width: 92%;
+}
+
+.no-js .fourth-skill {
+  width: 60%;
+}
+
+.skillbar-title,
+.skill-bar-percent {
+  color: #ffffff;
+  /*font-weight: 700;*/
+  font-size: 15px;
+  display: inline-block;
+  line-height: 1.5em;
+}
+
+
+.skillbar-bar {
+  height: 5px;
+  width: 0px;
+  background: #1c98b5;
+  border-radius: 22px;
+  -moz-border-radius: 22px;
+  -webkit-border-radius: 22px;
+}
+
+
+table.competences td.competence_detail:hover {
+background-color: #1c98b5;
+cursor:pointer;
+}
+
+/*=================================================================
+  Our Team
+==================================================================*/
+.team-member {
+  background-color: #202F42;
+  margin-bottom: 10px;
+}
+
+.team-member:hover  .mask {
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: rotateY(0deg) scale(1, 1);
+  transform: rotateY(0deg) scale(1, 1);
+}
+
+.member-photo {
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .member-photo {
+    text-align: center;
+  }
+}
+
+.member-photo:hover img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.member-photo img {
+  transition: all 0.4s ease 0s;
+}
+
+@media (max-width: 768px) {
+  .member-photo img {
+    display: inline-block;
+  }
+}
+
+.member-photo .mask {
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: all .5s ease-out 0s;
+  -webkit-transform: rotateY(180deg) scale(0.5, 0.5);
+  transform: rotateY(180deg) scale(0.5, 0.5);
+}
+
+.member-photo .mask ul {
+  text-align: center;
+  position: relative;
+  top: 125px;
+}
+
+.member-photo .mask ul li a {
+  border: 1px solid #fff;
+  color: #344253;
+  display: block;
+  font-size: 20px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  width: 35px;
+  text-decoration:none;
+}
+
+.member-photo .mask ul li a:hover {
+  background-color: #fff;
+  color: #1b98b5;
+  border: 1px solid transparent;
+}
+
+.member-meta {
+  padding: 15px;
+}
+
+.member-meta h4 {
+  margin: 0 0 5px;
+}
+
+.member-meta span {
+  font-size: 12px;
+}
