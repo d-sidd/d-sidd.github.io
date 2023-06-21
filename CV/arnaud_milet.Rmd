@@ -1,0 +1,155 @@
+---
+title: "Arnaud Milet"
+author: Arnaud Milet
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+css: style_modele_cv_imprimable.css
+
+---
+
+Aside
+================================================================================
+
+
+![Arnaud Milet](../images/arnaud.webp){width=80%}
+
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> arnaud.milet@d-sidd.com
+- <i class="fa fa-linkedin"></i> [linkedin.com/in/arnaud-milet](https://www.linkedin.com/in/arnaud-milet/)
+- <i class="fa-brands fa-github"></i> https://github.com/arnaudmilet
+- <i class="fa fa-phone"></i> +33 6 38 59 74 85
+
+
+Compétences {#skills}
+--------------------------------------------------------------------------------
+
+- **Techniques**: Traitement et analyse de données, Datavisualisation/Cartographie, Développement de packages R, Recherche documentaire, Gestion de code avec Git, Formateur R, SQL.
+
+- **Thématique**: Développement économique durable des territoires, Mesure du potentiel sur les territoires, Bien-être territorial, santé et accès aux soins, Ethique des données.
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+CV réalisé avec le package R [**pagedown**](https://github.com/rstudio/pagedown).
+
+Dernière mise à jour le `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Arnaud Milet {#title}
+--------------------------------------------------------------------------------
+
+### Statisticien / Economiste
+
+<p style='text-align: justify;'>Titulaire d’un master en ingénierie des données en sciences sociales et économie obtenu en 2007, mon expérience est le fruit d’un parcours en bureau d’études spécialisé en urbanisme, observatoire régional du tourisme ou encore laboratoire universitaire spécialisé en entreprenariat. Passionné par le développement territorial et par l’émergence de projets alternatifs, j’ai créé D-SIDD au sein de Crealead en 2016. De la collecte à l’analyse et à la vulgarisation des données, je puise dans toutes les ressources disponibles pour apporter un appui décisif et détaillé aux décideurs.</p>
+
+
+Formation {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### Master Ingénierie des Données en Sciences Sociales et Economiques
+
+Université de Savoie Mont Blanc
+
+Chambéry, France
+
+2007
+
+
+### Certificat de compétences - R Développeur - Création de packages 
+
+ThinkR
+
+Paris, France
+
+2023
+
+
+
+Expérience professionnelle {data-icon=suitcase class="experience"}
+--------------------------------------------------------------------------------
+
+###  Statisticien spécialiste des données territoriales
+
+Entrepreneur associé à la CAE Crealead
+
+Montpellier, France
+
+Depuis 2016
+
+
+### Ingénieur d'études
+
+Labex Entreprendre
+
+Montpellier, France
+
+2013-2014
+
+
+### Consultant statisticien
+
+Indépendant
+
+Nouméa, Nouvelle-Calédonie
+
+2012
+
+
+### Chargé d'études statistiques
+
+CRT Bretagne
+
+Rennes, France
+
+2010-2011
+
+
+### Chargé d'études statistiques
+
+AID observatoire
+
+Lyon, France
+
+2008-2010
+
+
+Références {data-icon=laptop class="references"}
+--------------------------------------------------------------------------------
+
+```{r list_reference, echo=FALSE,message=FALSE}
+library(readxl)
+library(tidyverse)
+references_dsidd <- read_excel("../references/references_dsidd.xlsx")
+
+liste_references <- references_dsidd %>% 
+  filter(`Afficher Arnaud`=="Oui") %>% 
+  mutate(
+    references_li=glue::glue("\n- {str_trim(`Libelle référence`)}, {str_trim(Client)}, {str_trim(`Année d’exécution`)}. \n")
+  ) %>% 
+  arrange(`Id Thématique Arnaud`,desc(`Année d’exécution`)) %>% 
+  select(`Thématique Arnaud`,references_li) %>% 
+  group_by(`Thématique Arnaud`) %>% 
+  nest() %>% 
+  mutate(
+    thematique_h3 = glue::glue("### {`Thématique Arnaud`}"),
+    references_li_rgp=map_chr(data,~glue::glue_collapse(.$references_li,sep="\n")),
+    thematique_rgp = glue::glue(thematique_h3,"\n\n",references_li_rgp,"\n\nRéférences d-sidd\n\n\n")
+  )  
+
+knitr::asis_output(liste_references$thematique_rgp)
+
+
+```
