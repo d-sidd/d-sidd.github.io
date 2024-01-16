@@ -81,6 +81,15 @@ Paris, France
 Expérience professionnelle {data-icon=suitcase class="experience"}
 --------------------------------------------------------------------------------
 
+###  Data analyst
+
+Data analyst sur la mission InserJeunes de beta.gouv
+
+En distanciel, 3 jours par semaine
+
+Depuis juillet 2023
+
+
 ###  Statisticien spécialiste des données territoriales
 
 Entrepreneur associé à la CAE Crealead
@@ -132,19 +141,39 @@ Références {data-icon=laptop class="references"}
 ```{r list_reference, echo=FALSE,message=FALSE}
 library(readxl)
 library(tidyverse)
-references_dsidd <- read_excel("../references/references_dsidd.xlsx")
+# references_dsidd <- read_excel("../references/references_dsidd.xlsx")
+# 
+# liste_references <- references_dsidd %>% 
+#   filter(`Afficher Arnaud`=="Oui") %>% 
+#   mutate(
+#     references_li=glue::glue("\n- {str_trim(`Libelle référence`)}, {str_trim(Client)}, {str_trim(`Année d’exécution`)}. \n")
+#   ) %>% 
+#   arrange(`Id Thématique Arnaud`,desc(`Année d’exécution`)) %>% 
+#   select(`Thématique Arnaud`,references_li) %>% 
+#   group_by(`Thématique Arnaud`) %>% 
+#   nest() %>% 
+#   mutate(
+#     thematique_h3 = glue::glue("### {`Thématique Arnaud`}"),
+#     references_li_rgp=map_chr(data,~glue::glue_collapse(.$references_li,sep="\n")),
+#     thematique_rgp = glue::glue(thematique_h3,"\n\n",references_li_rgp,"\n\nRéférences d-sidd\n\n\n")
+#   )  
+
+references_dsidd <- read_excel("../references/references_dsidd_v2.xlsx")
 
 liste_references <- references_dsidd %>% 
   filter(`Afficher Arnaud`=="Oui") %>% 
   mutate(
-    references_li=glue::glue("\n- {str_trim(`Libelle référence`)}, {str_trim(Client)}, {str_trim(`Année d’exécution`)}. \n")
+    references_li=glue::glue("\n- {str_trim(`Libellé référence`)}, {str_trim(`Client final`)}, {str_trim(`Année d’exécution`)}. \n")
   ) %>% 
-  arrange(`Id Thématique Arnaud`,desc(`Année d’exécution`)) %>% 
-  select(`Thématique Arnaud`,references_li) %>% 
-  group_by(`Thématique Arnaud`) %>% 
-  nest() %>% 
+  pivot_longer(cols = -c(1:10,17),names_to = "Thématique" ) %>% 
+  drop_na(value) %>% 
+  arrange(`Thématique`,desc(`Année d’exécution`)) %>%  
+  select(`Thématique`,references_li)  %>% 
+  mutate(`Thématique`=str_remove(`Thématique`,"T_")) %>% 
+  group_by(`Thématique`) %>% 
+  nest()  %>% 
   mutate(
-    thematique_h3 = glue::glue("### {`Thématique Arnaud`}"),
+    thematique_h3 = glue::glue("### {`Thématique`}"),
     references_li_rgp=map_chr(data,~glue::glue_collapse(.$references_li,sep="\n")),
     thematique_rgp = glue::glue(thematique_h3,"\n\n",references_li_rgp,"\n\nRéférences d-sidd\n\n\n")
   )  
