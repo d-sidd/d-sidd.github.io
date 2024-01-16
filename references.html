@@ -13,7 +13,7 @@
 
 <title>D-SIDD, Données du sens</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,8 +32,10 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="shortcut icon" href="images/favicon_printemps.ico" />
 
 <style type="text/css">
@@ -256,7 +258,7 @@ $(document).ready(function () {
   <a href="services.html">Services</a>
 </li>
 <li>
-  <a href="references.html">Références</a>
+  <a href="references_v2.html">Références</a>
 </li>
 <li>
   <a href="equipe.html">Equipe &amp; Contact</a>
@@ -273,16 +275,25 @@ $(document).ready(function () {
     </li>
     <li class="dropdown-header">Thématiques</li>
     <li>
+      <a href="Analyse_reseaux.html">Analyse en réseaux</a>
+    </li>
+    <li>
       <a href="circuits_courts.html">Circuits-Courts</a>
     </li>
     <li>
-      <a href="tiers_lieux.html">Tiers-Lieux</a>
+      <a href="emploi_salarie_epci.html">Emploi des territoires</a>
+    </li>
+    <li>
+      <a href="geoloc_pc_locaux.html">Implantation des activités économiques</a>
+    </li>
+    <li>
+      <a href="occupation_sol.html">Occupation du sol</a>
     </li>
     <li>
       <a href="qualite_de_vie.html">Qualité de vie</a>
     </li>
     <li>
-      <a href="readings-module2.html">Mobilité douce</a>
+      <a href="tiers_lieux.html">Tiers-Lieux</a>
     </li>
     <li>
       <a href="vegetalisation.html">Végétalisation des espaces artificialisés</a>
@@ -338,7 +349,25 @@ d’Accueil et d’Orientation (SIAO) avec les exigences du Logement
 d’Abord, SIAO 13, 2023.
 </li>
 <li>
+Cartographie interactive pour l’accompagnement au diagnostic stratégique
+préalable d’un pacte local des solidarités dans le département de
+l’Allier, Département Allier, 2023.
+</li>
+<li>
+Observatoire de l’ Immobilier d’Entreprise de Montpellier et son
+territoire Urbain, CERC Occitanie, 2022, 2023, 2024.
+</li>
+<li>
 Indicateurs de suivi socio-économique stratégique, Région Sud, 2022.
+</li>
+<li>
+Observatoire de l’Immobilier du Commerce Montpellier et son territoire
+Urbain, CERC Occitanie, 2022.
+</li>
+<li>
+Données de cadrage du plan départemental d’action pour le logement et
+l’hébergement des personnes défavorisées des Alpes de Hautes Provence,
+CEISS Consultants, 2022.
 </li>
 <li>
 Automatisation du baromètre de la coopération LEADER, Réseau Rural
@@ -370,6 +399,10 @@ Structuration des données de suivi du Plan de Protection de l’Atmosphère
 de la zone urbaine de Nîmes, DREAL Occitanie, 2023.
 </li>
 <li>
+Logement social : Appui à la mise en conformité de l’agglomération de
+Gap Tallard Durance avec la réforme des attributions, Logi-cité, 2023.
+</li>
+<li>
 Optimisation d’un outil de projections macro-économiques par métier à
 moyen terme, Cap Métiers – Nouvelle-Aquitaine, 2022-2023.
 </li>
@@ -381,6 +414,10 @@ Elaboration d’outils nationaux liés à la gouvernance et à la mise en
 Collecte et traitement des données sur la collecte, le traitement et la
 valorisation des déchets marins sur le littoral atlantique, Clean
 Atlantic, Union Européenne, 2022.
+</li>
+<li>
+Accompagnement de la plateforme d’appui aux transitions professionnelles
+portée par la PAM 74, Terre d’Avance, 2022.
 </li>
 <li>
 Diagnostic des flux et des interactions interterritoriales, ANCT - PETR
@@ -411,6 +448,10 @@ Mesure du potentiel sur les territoires
 </h3>
 <ul>
 <li>
+Tableaux de bord emploi formation Bâtiment et Travaux publics région Ile
+de France, CERC Ile de France, 2023.
+</li>
+<li>
 Prévision des effectifs scolaires, Mairie de Prades-le-Lez, 2022.
 </li>
 <li>
@@ -436,6 +477,10 @@ Centre-Val-de-Loire, 2016.
 Bien-être territorial, santé et accès aux soins
 </h3>
 <ul>
+<li>
+Diagnostic auprès des jeunes sans abri dans le Var pour la DDETS du Var
+et le dispositif du SIAO, DDETS du Var, 2023-2024.
+</li>
 <li>
 Analyse des besoins sociaux, La Londe-les-Maures, 2022.
 </li>
@@ -483,6 +528,512 @@ jours dispensées sur différentes librairies: de l’initiation à la
 datavisualisation, INRAE, CIRAD, CNRS, INSERM, …, Depuis 2016.
 </li>
 </ul>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Liste des références
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Libellé référence
+</th>
+<th style="text-align:left;">
+Année d’exécution
+</th>
+<th style="text-align:left;">
+Client final
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Etude socioéconomique de la pêche de loisir et de son potentiel de
+développement en Région Grand Est
+</td>
+<td style="text-align:left;">
+2024 (en cours)
+</td>
+<td style="text-align:left;">
+ARGE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Diagnostic auprès des jeunes sans abri dans le Var pour la DDETS du Var
+et le dispositif du SIAO
+</td>
+<td style="text-align:left;">
+2023-2024 (en cours)
+</td>
+<td style="text-align:left;">
+DDETS du Var
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observatoire de l’ Immobilier d’Entreprise de Montpellier et son
+territoire Urbain
+</td>
+<td style="text-align:left;">
+2022, 2023, 2024 (en cours)
+</td>
+<td style="text-align:left;">
+Métropole Montpellier et ses partenaires
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Cartographie interactive pour l’accompagnement au diagnostic stratégique
+préalable d’un pacte local des solidarités dans le département de
+l’Allier
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+Département Allier
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Diagnostic des déserts médicaux et modélisation de l’offre de
+téléconsultation
+</td>
+<td style="text-align:left;">
+2020 – 2023
+</td>
+<td style="text-align:left;">
+E-Meuse santé
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Etude d’impact du projet PISCOFAM
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+Ministère de la Pêche et de l’Economie Maritime de Guinée - AFD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Logement social : Appui à la mise en conformité de l’agglomération de
+Gap Tallard Durance avec la réforme des attributions
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+DDETS des Hautes-Alpes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Optimisation d’un outil de projections macro-économiques par métier à
+moyen terme
+</td>
+<td style="text-align:left;">
+2022-2023
+</td>
+<td style="text-align:left;">
+Cap Métiers – Nouvelle-Aquitaine
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Structuration des données de suivi du Plan de Protection de l’Atmosphère
+de la zone urbaine de Nîmes
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+DREAL Occitanie
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Tableaux de bord emploi formation Bâtiment et Travaux publics région Ile
+de France
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+CERC Ile de France
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Étude sur la mise en cohérence des fonctionnements du Services Intégré
+d’Accueil et d’Orientation (SIAO) avec les exigences du Logement d’Abord
+</td>
+<td style="text-align:left;">
+2023
+</td>
+<td style="text-align:left;">
+SIAO 13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Accompagnement de la plateforme d’appui aux transitions professionnelles
+portée par la PAM 74
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Terre d’Avance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse des besoins sociaux
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+La Londe-les-Maures
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Collecte et traitement des données sur la collecte, le traitement et la
+valorisation des déchets marins sur le littoral atlantique
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Clean Atlantic, Union Européenne
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Données de cadrage du plan départemental d’action pour le logement et
+l’hébergement des personnes défavorisées des Alpes de Hautes Provence
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Département des Alpes de Haute Provence
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Elaboration d’outils nationaux liés à la gouvernance et à la mise en
+œuvre des fonds européens
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+ANCT – Région Sud
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Indicateurs de suivi socio-économique stratégique
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Région Sud
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observatoire de l’Immobilier du Commerce Montpellier et son territoire
+Urbain
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Métropole Montpellier et ses partenaires
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Prévision des effectifs scolaires
+</td>
+<td style="text-align:left;">
+2022
+</td>
+<td style="text-align:left;">
+Mairie de Prades-le-Lez
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse des besoins sociaux
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+Canet-en-Roussillon
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse des besoins sociaux
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+Carqueiranne
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Automatisation du baromètre de la coopération LEADER
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+Réseau Rural Français
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Cartographie des activités de valorisation non académique des chercheurs
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+CNRS
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Diagnostic des flux et des interactions interterritoriales
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+ANCT - PETR Centre-Ouest Aveyron
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observatoire sur la perception de la nuisance liée aux moustiques
+</td>
+<td style="text-align:left;">
+2021
+</td>
+<td style="text-align:left;">
+EID Méditerranée
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Application interactive dédiée à la lutte contre le désert médicaux
+</td>
+<td style="text-align:left;">
+2018 à 2020
+</td>
+<td style="text-align:left;">
+MedTrucks
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Baromètre des activités de pleine nature
+</td>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:left;">
+Département des Alpes-Maritimes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Evaluation du poids économique de la pêche en Pays de la Loire
+</td>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:left;">
+Région Pays de la Loire
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse des déterminants du choix de résidence des ménages
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+Loire Forez agglomération
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Diagnostic de l’offre d’accompagnement de l’ESS
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Région Occitanie
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Evaluation du poids économique de la pêche en Nouvelle-Aquitaine
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Région Nouvelle-Aquitaine
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Réalisation d’une application de mesure du potentiel de télétravail en
+France
+</td>
+<td style="text-align:left;">
+2018
+</td>
+<td style="text-align:left;">
+Relais d’Entreprises
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Diagnostic de la santé, la qualité de vie et du bien-être
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+Grand Narbonne
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Evaluation du poids économique de la pêche dans le cantal
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+Cantal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Mesure du potentiel de consommation en circuits courts
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+CC du Grand Pic Saint Loup
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observatoire de la qualité de vie
+</td>
+<td style="text-align:left;">
+2017
+</td>
+<td style="text-align:left;">
+Région Auvergne-Rhône-Alpes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse de la chaîne d’approvisionnement de la restauration collective
+et réalisation d’une application interactive collaborative
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+Région Centre-Val-de-Loire
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse du risque agricole pour l’IFAD Platform for Agricultural Risk
+Management
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+PARM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Applications interactives et libres de diagnostic d’accessibilité aux
+circuits-courts, aux tiers-lieux et végétalisation de l’espace urbain
+</td>
+<td style="text-align:left;">
+2016
+</td>
+<td style="text-align:left;">
+D-SIDD
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+How do research-based start-ups overcome the Valley of Death?. Bessiere,
+Veronique &amp; Gomez Breysse, Marie &amp; Messeghem, Karim &amp; Milet,
+Arnaud &amp; Sammut, Sylvie.
+</td>
+<td style="text-align:left;">
+2014
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Tourisme durable : Impact économique, environnemental et social du
+tourisme sur les destinations bretonnes
+</td>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Analyse des flux de consommation des ménages sur plusieurs dizaines de
+territoires
+</td>
+<td style="text-align:left;">
+2008 à 2010
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 <div class="footer"> 
