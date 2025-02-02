@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/archives/*
+carto_d_sidd.knit.md
+carto_d_sidd.Rmd
+generer_site.Rmd
+/site-dsidd/*
+!/site-dsidd/docs
+README.Rmd

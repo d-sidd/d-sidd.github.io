@@ -1,0 +1,63 @@
+```{r, echo=FALSE}
+element_dsidd <- readRDS("element_dsidd.rds")
+
+```
+
+---
+title: "`r element_dsidd$titre`"
+---
+
+```{css, echo=FALSE}
+.footer {
+  background-color:#FFFFFF ;
+}
+```
+
+# Nos références  {class="page_site references"}
+
+--------------------------------------------------------------------
+
+```{r list_reference, echo=FALSE,message=FALSE}
+library(readxl)
+library(tidyverse)
+library(kableExtra)
+references_dsidd <- read_excel("references/references_dsidd.xlsx")
+
+liste_references <- references_dsidd %>% 
+  filter(`Origine expérience`=="d-sidd") %>% 
+  mutate(
+    references_li=glue::glue("<li>{str_trim(`Libelle référence`)}, {str_trim(Client)}, {str_trim(`Année d’exécution`)}.</li>")
+  ) %>% 
+  arrange(`Id Thématique Arnaud`,desc(`Année d’exécution`)) %>% 
+  select(`Thématique Arnaud`,references_li) %>% 
+  group_by(`Thématique Arnaud`) %>% 
+  nest() %>% 
+  mutate(
+    thematique_h3 = glue::glue("<h3>{`Thématique Arnaud`}</h3>"),
+    references_li_rgp=map_chr(data,~glue::glue_collapse(.$references_li)),
+    thematique_rgp = glue::glue(thematique_h3,"<ul>",references_li_rgp,"</ul>")
+    ) %>% 
+  pull(thematique_rgp) %>% 
+  str_flatten()
+
+knitr::asis_output(liste_references)
+
+
+references_dsidd_v2 <- read_excel("references/references_dsidd_v2.xlsx")
+
+liste_references2 <- references_dsidd_v2 %>% arrange(-num,`Libellé référence`) %>% 
+select("Libellé référence","Année d’exécution" ,"Client final","Partenaires",starts_with("T_")) %>% 
+  select(1:3)
+
+knitr::kable(liste_references2, caption = "Liste des références", format = "html")%>%
+    kable_styling(latex_options = "scale_down") %>%
+  column_spec(1, bold = TRUE)
+  # kable_styling(bootstrap_options = "striped", full_width = FALSE,fixed_thead = TRUE) %>%
+  # add_header_above(c(" " = 1, "En-tête 1" = 2, "En-tête 2" = 1)) %>%
+  # column_spec(1, width = "100px") %>% 
+  # column_spec(1, width = "3cm") %>%
+  # column_spec(2, width = "2cm") %>%
+  # column_spec(3, width = "2.5cm")
+```
+  
+  

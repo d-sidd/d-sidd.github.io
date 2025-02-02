@@ -1,0 +1,233 @@
+---
+title: "Emmanuelle Sourisseau"
+author: Emmanuelle Sourisseau
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+# uncomment this line to produce HTML and PDF in RStudio:
+# knit: pagedown::chrome_print
+---
+
+Aside
+================================================================================
+
+
+![Emmanuelle Sourisseau](../images/emmanuelle.webp){width=80%}
+
+Profil {#profil}
+--------------------------------------------------------------------------------
+
+- 52 ans, réside à Montferrier-sur-Lez (Hérault) 
+
+- 25 ans d’expérience professionnelle 
+
+- DESS Economie du développement (Université de
+Nanterre - Paris X) 
+
+- « Visualisation des données avec R-Shiny » « R
+pour la data science » « Programmation R »
+(formation continue CEGEFOS)
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> emmanuelle.sourisseau@d-sidd.com
+- <i class="fa fa-linkedin"></i> [linkedin.com/in/emmanuellesourisseau-datascience](https://www.linkedin.com/in/emmanuellesourisseau-datascience/)
+- <i class="fa fa-phone"></i> +33 6 40 64 58 64
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+CV réalisé avec le package R [**pagedown**](https://github.com/rstudio/pagedown).
+
+Dernière mise à jour le `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Emmanuelle Sourisseau {#title}
+--------------------------------------------------------------------------------
+
+### Statisticienne / Economiste<br>Consultante études et statistiques des territoires
+
+<p style='text-align: justify;'>Je propose des outils facilitant la lecture des
+données, pour développer la connaissance, favoriser
+la concertation et éclairer la décision.
+Mon expérience couvre de nombreux domaines
+d’études : activités, emploi, formation, démographie,
+infrastructures, mobilités, énergies, logement,
+permis de construire etc.</p>
+
+Expérience professionnelle {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+- Depuis 2022 | Consultante entrepreneuse à T&S et D-SIDD chez CREALEAD 
+
+- 2017-2021 | Responsable du site de Montpellier de la CERC Occitanie (observatoire de la filière construction)
+
+- 2011-2017 | Chargée d’études chef de projet CARIF OREF LR/Occitanie (observatoire emploi formation) 
+
+- 2010-2011 | Ingénieure en économie au LAMETA (fac.de sciences économiques de
+Montpellier) 
+
+- 2008-2010 | Chargée de mission statistiques à la Province Nord de la
+Nouvelle-Calédonie 
+
+- 2005-2008 | Consultante statisticienne indépendante en Nouvelle-Calédonie 
+
+- 2002-2005 | Chef du bureau des statistiques au Vice-Rectorat de Mayotte 
+
+- 1996-1998 | Emplois successifs de chargée d’études et de recherche (faculté de
+sciences économique de Montpellier, IFREMER, CIRAD, SCET) 
+
+
+Compétences {#skills}
+--------------------------------------------------------------------------------
+
+- Experienced in statistical analysis, statistical learning models, and optimization methods.
+
+- Full experience with next generation sequencing data analysis.
+
+- Highly skilled in R, Bash, Perl, Python, LaTeX
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### Beijing University of Chemical Technology
+
+B.S. in Information and Computing Sciences
+
+Beijing, China
+
+2010
+
+Thesis: Dyadic wavelet and its application in edge detection
+
+### University of Chinese Academy of Sciences
+
+M.S. in Bioinformatics
+
+Beijing, China
+
+2014
+
+Thesis: A multi-omics study for intra-individual divergence of the distributions between mRNA isoforms in mammals
+
+
+Research Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+### Graduate Research Assistant
+
+Beijing Institute of Genomics, Chinese Academy of Sciences
+
+Beijing, China
+
+2011 - 2014
+
+- Performed computational biology research towards understanding regulation of alternative splicing in human and mouse transcriptome.
+- Found EGFR pathway related mutations, aimed to understand the impacts of cancer mutations on EGFR signaling pathway.
+
+### Bioinformatican
+
+My Health Gene Technology Co., Ltd.
+
+Beijing, China
+
+2015 - 2016
+
+- Investigated how cancer cells spread to other parts of the body at the single cell level.
+
+### Visiting Scientist
+
+University of Alabama at Birmingham
+
+AL, USA
+
+2016 - 2018
+
+- Investigated the role of mitochondria in development of cancer.
+- Investigated the evolution of genome architecture and its role in important evolutionary events.
+- Detected thrombotic thrombocytopenic purpura related mutations in mutiple patients' blood genome.
+  
+
+Professional Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### Data Scientist, intern
+
+SupStat Inc.
+
+Beijing, China
+
+2014
+
+::: concise
+- Taught R language to beginners. 
+- Wrote Shiny app demos.
+- Converted statistical tutorials from SPSS to R language.
+:::
+
+### Bioinformatician
+
+My Health Gene Technology Co., Ltd.
+
+Beijing, China
+
+2015 - 2016
+
+::: concise
+- Analyzed whole-exome sequencing data. 
+- Wrote analysis pipelines of ChIP-seq, single cell DNA-seq and single cell RNA-seq.
+- Studied tumor metastasis and wrote research reports. 
+- Also did case studies to identify the genetic defect causing rare disease.
+:::
+
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+### Introduction to R Language for Beginners.
+
+Instructor of R and Data Mining Training Courses at SupStat Inc.
+
+Beijing, China
+
+2014
+
+### Computational Biology and Bioinformatics.
+
+Teaching assistant of GBS CB2-201 courses at UAB
+
+AL, USA
+
+2016 - 2017
+
+
+Selected Publications and Posters {data-icon=file}
+--------------------------------------------------------------------------------
+
+### Genetic and epigenetic signals are found predictive to the distribution of intra-individual divergence of alternative splicing.
+
+Poster for 2013 International Conference of Genomics
+
+Qingdao, China
+
+2014
+
+**Yu L**, Chen B, Zhang Z.
+
+### ESCRT-0 complex modulates Rbf mutant cell survival by regulating Rhomboid endosomal trafficking and EGFR signaling.
+
+J Cell Sci. 2016 May 15;129(10):2075-84.
+
+N/A
+
+2016 
+
+Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W. 
