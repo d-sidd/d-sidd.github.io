@@ -5,7 +5,8 @@
 /archives/*
 carto_d_sidd.knit.md
 carto_d_sidd.Rmd
-generer_site.Rmd
+generer_site.R
+d-sidd.github.io.Rproj
 /site-dsidd/*
 !/site-dsidd/docs
 README.Rmd

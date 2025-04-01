@@ -31,7 +31,7 @@ Contact {#contact}
 Compétences {#skills}
 --------------------------------------------------------------------------------
 
-- **Techniques**: Traitement et analyse de données, Datavisualisation/Cartographie, Développement de packages R, Recherche documentaire, Gestion de code avec Git, Formateur R, SQL.
+- **Techniques**: Traitement et analyse de données, Datavisualisation/Cartographie, Développement de packages R, Recherche documentaire, Gestion de code avec Git, Formateur R, SQL, Metabase, Notion.
 
 - **Thématique**: Développement économique durable des territoires, Mesure du potentiel sur les territoires, Bien-être territorial, santé et accès aux soins, Ethique des données.
 
@@ -138,7 +138,7 @@ Lyon, France
 Références {data-icon=laptop class="references"}
 --------------------------------------------------------------------------------
 
-```{r list_reference, echo=FALSE,message=FALSE}
+```{r list_reference, echo=FALSE,message=FALSE,warning=FALSE}
 library(readxl)
 library(tidyverse)
 # references_dsidd <- read_excel("../references/references_dsidd.xlsx")
@@ -163,10 +163,14 @@ references_dsidd <- read_excel("../references/references_dsidd_v2.xlsx")
 liste_references <- references_dsidd %>% 
   filter(`Afficher Arnaud`=="Oui") %>% 
   mutate(
-    references_li=glue::glue("\n- {str_trim(`Libellé référence`)}, {str_trim(`Client final`)}, {str_trim(`Année d’exécution`)}. \n")
+    references_li=glue::glue("\n- {str_trim(`Désignation de la référence`)}, {str_trim(`Client final`)}, {str_trim(`Année d’exécution`)}. \n")
   ) %>% 
-  pivot_longer(cols = -c(1:10,17),names_to = "Thématique" ) %>% 
+  pivot_longer(cols = c(11:16),names_to = "Thématique" ) %>%  
   drop_na(value) %>% 
+  mutate(`Thématique`=factor(`Thématique`)) %>% 
+  group_by(across(-`Thématique`)) %>% 
+  filter(as.numeric(Thématique)==min(as.numeric(`Thématique`))) %>% 
+  ungroup() %>% 
   arrange(`Thématique`,desc(`Année d’exécution`)) %>%  
   select(`Thématique`,references_li)  %>% 
   mutate(`Thématique`=str_remove(`Thématique`,"T_")) %>% 
