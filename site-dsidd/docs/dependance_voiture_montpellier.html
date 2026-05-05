@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>D-SIDD, Données du sens</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="shortcut icon" href="images/favicon_printemps.ico" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="images/logo_d_sidd_2.webp" style="height: 50px;"</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Accueil</a>
+</li>
+<li>
+  <a href="services.html">Services</a>
+</li>
+<li>
+  <a href="references_v2.html">Références</a>
+</li>
+<li>
+  <a href="equipe.html">Equipe &amp; Contact</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    L'atelier
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="atelier_kesako.html">C'est quoi l'atelier</a>
+    </li>
+    <li class="dropdown-header">Thématiques</li>
+    <li>
+      <a href="Analyse_reseaux.html">Analyse en réseaux</a>
+    </li>
+    <li>
+      <a href="circuits_courts.html">Circuits-Courts</a>
+    </li>
+    <li>
+      <a href="emploi_salarie_epci.html">Emploi des territoires</a>
+    </li>
+    <li>
+      <a href="geoloc_pc_locaux.html">Implantation des activités économiques</a>
+    </li>
+    <li>
+      <a href="dependance_voiture_montpellier.html">Indice de dépendance à la voiture</a>
+    </li>
+    <li>
+      <a href="faire_tiers_lieux_synthese.html">Les entrepreneur.es des CAE</a>
+    </li>
+    <li>
+      <a href="occupation_sol.html">Occupation du sol</a>
+    </li>
+    <li>
+      <a href="qualite_de_vie.html">Qualité de vie</a>
+    </li>
+    <li>
+      <a href="tiers_lieux.html">Tiers-Lieux</a>
+    </li>
+    <li>
+      <a href="vegetalisation.html">Végétalisation des espaces artificialisés</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Ressources R</li>
+    <li>
+      <a href="carto_d_sidd.html">Premiers pas en cartographie</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/d-sidd">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/company/10152426">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">D-SIDD, Données du sens</h1>
+
+</div>
+
+
+<style type="text/css">
+.footer {
+  background-color:#FFFFFF;
+}
+
+ul{
+  text-align: left;
+  padding-left: 1em;
+  margin-left: 10em;
+}
+
+p { text-align: justify; }
+</style>
+<div
+id="dépendance-à-la-voiture-que-dit-le-car-dependency-index-pour-montpellier"
+class="section level2 fiche_lab">
+<h2 class="fiche_lab">Dépendance à la voiture : que dit le Car
+Dependency Index pour Montpellier ?</h2>
+<p>Un article de recherche récent a retenu notre attention : <a
+href="https://arxiv.org/abs/2604.01019">arxiv.org/abs/2604.01019</a>.
+Les auteurs y proposent un indicateur composite — le <strong>Car
+Dependency Index (CDI)</strong> — permettant de déterminer, pour chaque
+habitant d’une zone de 200 m × 200 m, si l’utilisation de la voiture est
+préférable à celle des transports en commun pour accéder à un ensemble
+de services : santé, éducation, alimentation, banque, etc.</p>
+<p>La préférence se mesure ici uniquement par rapport au <strong>temps
+de trajet</strong>. C’est un angle volontairement restreint — le coût,
+le confort ou l’empreinte carbone ne sont pas pris en compte — mais il
+offre une base objective et reproductible. L’étude couvre <strong>18
+villes d’Europe et d’Amérique du Nord</strong>, dont trois françaises :
+Paris, Bordeaux et Nantes.</p>
+<hr />
+</div>
+<div id="le-cdi-comment-ça-marche" class="section level1">
+<h1>Le CDI : comment ça marche ?</h1>
+<div id="principe-général" class="section level2">
+<h2>Principe général</h2>
+<p>Pour chaque carreau de 200 m de côté, on calcule — pour chaque type
+de service — le ratio entre le temps d’accès en transports en commun et
+le temps d’accès en voiture. Un ratio supérieur à 1 signifie que la
+voiture est plus rapide ; inférieur à 1, que les TC sont
+compétitifs.</p>
+<p>Le CDI agrège ces ratios sur l’ensemble des services et des habitants
+d’une ville. Sa lecture est la suivante :</p>
+<ul>
+<li><p><strong>CDI &lt; 0</strong> — Plus de 50 % des habitants ont un
+avantage à utiliser les transports en commun (médiane favorable aux
+TC).</p></li>
+<li><p><strong>CDI = 0</strong> — Situation d’équilibre : la moitié de
+la population accède aux services aussi vite en TC qu’en
+voiture.</p></li>
+<li><p><strong>CDI &gt; 0</strong> — Moins de 50 % des habitants ont un
+avantage avec les TC ; la voiture reste dominante pour la
+majorité.</p></li>
+</ul>
+</div>
+<div id="données-mobilisées" class="section level2">
+<h2>Données mobilisées</h2>
+<p>Les calculs s’appuient sur quatre types de sources :</p>
+<ul>
+<li><p><strong>Réseau TC</strong> — données GTFS (General Transit Feed
+Specification) des opérateurs locaux</p></li>
+<li><p><strong>Réseau routier</strong> — OpenStreetMap (OSM)</p></li>
+<li><p><strong>Congestion</strong> — Tomtom</p></li>
+<li><p><strong>Localisation des services</strong> — OpenStreetMap (POI :
+santé, éducation, alimentation, banque…)</p></li>
+<li><p><strong>Population</strong> — données carroyées INSEE (200 m)
+pour les villes françaises (Filosofi)</p></li>
+</ul>
+<p>Les temps de trajet en TC intègrent les temps d’attente et de
+correspondance, calculés via un algorithme de routage multimodal. Les
+temps voiture sont estimés à partir des vitesses moyennes par type de
+voie OSM.</p>
+<hr />
+</div>
+</div>
+<div id="les-résultats-de-létude" class="section level1">
+<h1>Les résultats de l’étude</h1>
+<p>Parmi les 18 villes étudiées, Paris intra-muros se distingue
+nettement avec le seul CDI négatif du classement :</p>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:center;">
+Rang
+</th>
+<th style="text-align:left;">
+Ville
+</th>
+<th style="text-align:right;">
+CDI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+1
+</td>
+<td style="text-align:left;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+Paris (Municipalité)
+</td>
+<td style="text-align:right;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+-0.111
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+2
+</td>
+<td style="text-align:left;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+Zurich
+</td>
+<td style="text-align:right;font-weight: bold;color: rgba(26, 122, 74, 255) !important;">
+-0.020
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:left;">
+Nantes
+</td>
+<td style="text-align:right;">
+0.013
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:left;">
+Bordeaux
+</td>
+<td style="text-align:right;">
+0.053
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:left;">
+Milan
+</td>
+<td style="text-align:right;">
+0.063
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:left;">
+Barcelone
+</td>
+<td style="text-align:right;">
+0.087
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:left;">
+Porto
+</td>
+<td style="text-align:right;">
+0.091
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:left;">
+Stockholm
+</td>
+<td style="text-align:right;">
+0.094
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:left;">
+Munich
+</td>
+<td style="text-align:right;">
+0.102
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:left;">
+Valence
+</td>
+<td style="text-align:right;">
+0.102
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:left;">
+Vienne
+</td>
+<td style="text-align:right;">
+0.129
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:left;">
+Paris (Métropole du Grand Paris)
+</td>
+<td style="text-align:right;">
+0.166
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:left;">
+Seattle
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:left;">
+Berlin
+</td>
+<td style="text-align:right;">
+0.195
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+Karlsruhe
+</td>
+<td style="text-align:right;">
+0.202
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:left;">
+New York
+</td>
+<td style="text-align:right;">
+0.241
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:left;">
+Chicago
+</td>
+<td style="text-align:right;">
+0.270
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:left;">
+Malaga
+</td>
+<td style="text-align:right;">
+0.310
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:left;">
+Rome
+</td>
+<td style="text-align:right;">
+0.335
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="application-à-montpellier" class="section level1">
+<h1>Application à Montpellier</h1>
+<div id="validation-de-lapproche" class="section level2">
+<h2>Validation de l’approche</h2>
+<p>Avant d’appliquer la méthodologie à Montpellier, nous avons recalculé
+le CDI des trois villes françaises de l’étude (Paris, Nantes et
+Bordeaux) afin de vérifier la cohérence de nos traitements avec ceux des
+auteurs. Les écarts observés sont faibles, ce qui valide l’approche.</p>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:center;">
+Rang étude
+</th>
+<th style="text-align:left;">
+Ville
+</th>
+<th style="text-align:right;">
+CDI étude
+</th>
+<th style="text-align:right;">
+CDI recalculé
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:left;">
+Paris (Municipalité)
+</td>
+<td style="text-align:right;">
+-0,111
+</td>
+<td style="text-align:right;">
+—
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:left;">
+Nantes
+</td>
+<td style="text-align:right;">
+0,013
+</td>
+<td style="text-align:right;">
+0,019
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:left;">
+Bordeaux
+</td>
+<td style="text-align:right;">
+0,053
+</td>
+<td style="text-align:right;">
+0,058
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: rgba(253, 240, 235, 255) !important;">
+—
+</td>
+<td style="text-align:left;font-weight: bold;background-color: rgba(253, 240, 235, 255) !important;">
+Montpellier
+</td>
+<td style="text-align:right;font-weight: bold;background-color: rgba(253, 240, 235, 255) !important;">
+—
+</td>
+<td style="text-align:right;font-weight: bold;background-color: rgba(253, 240, 235, 255) !important;">
+<strong>0,131</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="résultat" class="section level2">
+<h2>Résultat</h2>
+<p>Avec un CDI de <strong>0,131</strong>, Montpellier se situerait, dans
+le classement de l’étude, entre Vienne (0,129) et le Grand Paris
+(0,166).</p>
+<p><img src="images/cdi_4_villes.png" /></p>
+<p>Concrètement, <strong>11,5 % de la population
+montpelliéraine</strong> réside dans des zones où les transports en
+commun offrent un temps d’accès aux services comparable ou inférieur à
+celui de la voiture.</p>
+<p>À titre de comparaison :</p>
+<ul>
+<li><p><strong>21,7 %</strong> à Bordeaux</p></li>
+<li><p><strong>38,5 %</strong> à Nantes</p></li>
+<li><p><strong>95,3 %</strong> à Paris intra-muros</p></li>
+</ul>
+<p>Dans un contexte économique incertain, l’amélioration de
+l’accessibilité en transports en commun représente une réponse
+collective à la maîtrise du budget transport des ménages. Pour
+Montpellier, la marge de progression semble réelle.</p>
+<hr />
+</div>
+</div>
+<div id="perspectives" class="section level1">
+<h1>Perspectives</h1>
+<div id="la-suite-le-vélo" class="section level2">
+<h2>La suite : le vélo</h2>
+<p>La prochaine étape de ce travail consiste à intégrer les modes actifs
+— et notamment le vélo — dans le calcul d’accessibilité. L’essor des
+vélos à assistance électrique et le développement des infrastructures
+cyclables modifient significativement les temps d’accès pour un nombre
+croissant de services et d’habitants.</p>
+</div>
+<div id="autres-leviers-daction" class="section level2">
+<h2>Autres leviers d’action</h2>
+<p>L’amélioration de l’accessibilité via les TC n’est pas le seul axe
+possible. Deux autres leviers méritent attention :</p>
+<ul>
+<li><p><strong>Rapprocher les services de la population</strong> —
+localisation des équipements publics et privés dans les zones
+sous-desservies.</p></li>
+<li><p><strong>Développer les solutions cyclables</strong> — pistes
+protégées, stationnement sécurisé, intermodalité TC/vélo.</p></li>
+</ul>
+<p>Ces trois axes — TC, localisation des services, vélo — peuvent être
+évalués et comparés avec le même cadre analytique que celui utilisé
+ici.</p>
+<hr />
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1>Sources</h1>
+<ul>
+<li><p><strong>Article de référence :</strong> <a
+href="https://arxiv.org/abs/2604.01019">arxiv.org/abs/2604.01019</a></p></li>
+<li><p><strong>Données TC :</strong> GTFS Transports de l’Agglomération
+de Montpellier (TAM) — <a
+href="https://transport.data.gouv.fr">transport.data.gouv.fr</a></p></li>
+<li><p><strong>Réseau routier &amp; services (POI) :</strong>
+OpenStreetMap contributors</p></li>
+<li><p><strong>Population :</strong> INSEE — Données carroyées 200 m
+(Filosofi)</p></li>
+<li><p><strong>Code source :</strong> disponible sur <a
+href="https://github.com/d-sidd/cdi">GitHub</a></p></li>
+</ul>
+</div>
+
+<div class="footer"> 
+  
+  <hr> 
+  <p>D-SIDD est une activité de la coopérative d'entrepreneurs <a href="https://www.crealead.com">Crealead</a> à Montpellier. Ce site est hébergé sur <a href="https://github.com/">github</a> et il est développé par d-sidd.</p>
+
+
+</div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

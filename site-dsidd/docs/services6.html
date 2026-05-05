@@ -13,7 +13,7 @@
 
 <title>D-SIDD, Données du sens</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="shortcut icon" href="images/favicon_printemps.ico" />
 
 <style type="text/css">
@@ -283,6 +285,12 @@ $(document).ready(function () {
       <a href="geoloc_pc_locaux.html">Implantation des activités économiques</a>
     </li>
     <li>
+      <a href="dependance_voiture_montpellier.html">Indice de dépendance à la voiture</a>
+    </li>
+    <li>
+      <a href="faire_tiers_lieux_synthese.html">Les entrepreneur.es des CAE</a>
+    </li>
+    <li>
       <a href="occupation_sol.html">Occupation du sol</a>
     </li>
     <li>
@@ -328,35 +336,261 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-.footer {
-  background-color:#FFFFFF ;
+#header {
+  display: none;
 }
 
+.pipeline-wrap {
+  padding: 1.5rem 0;
+}
+
+.intro-text {
+  font-size: 15px;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.step {
+  flex: 1 1 160px;
+  min-width: 140px;
+  max-width: 200px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.step:hover {
+  background: #fff5f5;
+  border-color: #e53e3e;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  color: #adb5bd;
+  font-size: 20px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.step-header i,
+.step-header svg {
+  color: #e53e3e;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.step-header svg {
+  width: 20px;
+  height: 20px;
+}
+
+.step-num {
+  font-size: 11px;
+  font-weight: 500;
+  color: #adb5bd;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.step-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-list li {
+  font-size: 14px;
+  color: #6c757d;
+  padding: 3px 0 3px 12px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.step-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #ced4da;
+}
+
+@media (max-width: 600px) {
+  .pipeline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .step {
+    max-width: 100%;
+  }
+  .step-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+    padding: 4px 0;
+  }
+}
 </style>
-<div id="implantation-des-activités-économiques"
-class="section level2 fiche_lab">
-<h2 class="fiche_lab">Implantation des activités économiques</h2>
+<div id="les-données-au-service-des-acteurs-des-territoires"
+class="section level1 page_site">
+<h1 class="page_site">Les données au service des acteurs des
+territoires</h1>
 <hr />
-<ul class="list-inline item-details">
+<div class="pipeline-wrap">
+<p class="intro-text">
+Nous accompagnons les acteurs publics et territoriaux dans la
+transformation des données en outils d’analyse, de décision et d’action.
+</p>
+<div class="pipeline">
+<div class="step">
+<div class="step-num">
+01
+</div>
+<div class="step-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+</svg>
+<p><span class="step-title">Produire</span></p>
+</div>
+<ul class="step-list">
 <li>
-Client: <strong>Accès libre</strong>
+Outils numériques et dataviz
 </li>
 <li>
-Date: <strong>2024</strong>
+Rapports d’études reproductibles
 </li>
 <li>
-Categorie: <strong>Aménagement / Application interactive</strong>
+Tableaux de bord interactifs
+</li>
+<li>
+Applications légères de partage
+</li>
+<li>
+Cartographies statiques ou interactives
+</li>
+<li>
+Graphes de réseaux
 </li>
 </ul>
-<p><img src="images/pc_locaux.png" /></p>
-<p>Pour éclairer les projets d’aménagements des territoires et
-l’implantation des activités économiques, <strong>d-sidd</strong>
-exploite la base Sitadel des listes de permis de construire des locaux
-non résidentiels et géolocalise les résultats.</p>
-<p>Un <strong>exemple sur le territoire de Sète Agglopôle
-Méditarranée</strong> ici :</p>
-<p><a href="https://dsidd.shinyapps.io/GeolocPCLocaux/" class="button" target="_blank">Voir
-l’application</a></p>
+</div>
+<div class="step-arrow">
+›
+</div>
+<div class="step">
+<div class="step-num">
+02
+</div>
+<div class="step-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="22 20 2 20"/>
+</svg>
+<p><span class="step-title">Analyser</span></p>
+</div>
+<ul class="step-list">
+<li>
+Diagnostic de territoire
+</li>
+<li>
+Études socio-économiques
+</li>
+<li>
+Analyses des besoins sociaux
+</li>
+<li>
+Projections emploi par secteur
+</li>
+<li>
+Analyse relation emploi-formation
+</li>
+</ul>
+</div>
+<div class="step-arrow">
+›
+</div>
+<div class="step">
+<div class="step-num">
+03
+</div>
+<div class="step-header">
+<p><i class="fa fa-tachometer" style="color:#e53e3e; font-size:18px;"></i>
+<span class="step-title">Piloter</span></p>
+</div>
+<ul class="step-list">
+<li>
+Pilotage et suivi dans le temps
+</li>
+<li>
+Construction d’observatoire
+</li>
+<li>
+Animation d’observatoire
+</li>
+<li>
+Définition d’indicateurs de suivi
+</li>
+</ul>
+</div>
+<div class="step-arrow">
+›
+</div>
+<div class="step">
+<div class="step-num">
+04
+</div>
+<div class="step-header">
+<p><i class="fa fa-share-alt" style="color:#e53e3e; font-size:18px;"></i>
+<span class="step-title">Former, transmettre &amp; partager</span></p>
+</div>
+<ul class="step-list">
+<li>
+Formation R (initiation &amp; perfectionnement)
+</li>
+<li>
+Dataviz avec R (tidyverse, Shiny)
+</li>
+<li>
+Partage de connaissances et documentation
+</li>
+<li>
+Interopérabilité des données et des systèmes
+</li>
+<li>
+Standards ouverts et formats d’échange
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 
 <div class="footer"> 
