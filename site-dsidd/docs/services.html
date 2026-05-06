@@ -339,67 +339,258 @@ $(document).ready(function () {
 #header {
   display: none;
 }
+
+.pipeline-wrap {
+  padding: 1.5rem 0;
+}
+
+.intro-text {
+  font-size: 15px;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.step {
+  flex: 1 1 160px;
+  min-width: 140px;
+  max-width: 200px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.step:hover {
+  background: #fff5f5;
+  border-color: #e53e3e;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  color: #e53e3e;
+  font-size: 40px;
+  align-self: center;
+  flex-shrink: 0;
+  font-weight: 800;
+}
+
+.step-header {
+  display: flex;
+  /*align-items: center;*/
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.step-header i,
+.step-header svg {
+  color: #e53e3e;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.step-header svg {
+  width: 20px;
+  height: 20px;
+}
+
+.step-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #adb5bd;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.step-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #212529;
+  margin: 0 0 0 10px;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step-list li {
+  font-size: 14px;
+  color: #6c757d;
+  padding: 3px 0 3px 12px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.step-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #ced4da;
+}
+
+@media (max-width: 600px) {
+  .pipeline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .step {
+    max-width: 100%;
+  }
+  .step-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+    padding: 4px 0;
+  }
+}
 </style>
 <div id="les-données-au-service-des-acteurs-des-territoires"
 class="section level1 page_site">
 <h1 class="page_site">Les données au service des acteurs des
 territoires</h1>
 <hr />
-<p class="lead text-center text-muted">
+<div class="pipeline-wrap">
+<p class="intro-text">
 Nous accompagnons les acteurs publics et territoriaux dans la
 transformation des données en outils d’analyse, de décision et d’action.
 </p>
-<div class="row">
-<div class="col-lg-3 col-md-6 text-center">
-<div class="service-box">
-<i class="fa fa-4x fa-search-plus wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i>
-<h3>
-Explorer les territoires
-</h3>
-<p class="text-muted">
-Réaliser des études et des diagnostics de territoires pour améliorer la
-connaissance localisée, éclairer les enjeux du développement durable et
-faciliter la décision des acteurs.
+<div class="pipeline">
+<div class="step">
+<div class="step-num">
+01
+</div>
+<div class="step-header">
+<svg viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+</svg>
+<p><span class="step-title">Produire</span></p>
+</div>
+<ul class="step-list">
+<li>
+Outils numériques et dataviz
+</li>
+<li>
+Rapports d’études reproductibles
+</li>
+<li>
+Tableaux de bord interactifs
+</li>
+<li>
+Applications légères de partage
+</li>
+<li>
+Cartographies statiques ou interactives
+</li>
+<li>
+Graphes de réseaux
+</li>
+</ul>
+</div>
+<div class="step-arrow">
+›
+</div>
+<div class="step">
+<div class="step-num">
+02
+</div>
+<div class="step-header">
+<p>
+<svg viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="22 20 2 20"/>
+</svg>
+<span class="step-title">Analyser</span>
 </p>
 </div>
+<ul class="step-list">
+<li>
+Diagnostic de territoire
+</li>
+<li>
+Études socio-économiques
+</li>
+<li>
+Analyses des besoins sociaux
+</li>
+<li>
+Projections emploi par secteur
+</li>
+<li>
+Analyse relation emploi-formation
+</li>
+</ul>
 </div>
-<div class="col-lg-3 col-md-6 text-center">
-<div class="service-box">
-<i class="fa fa-4x fa-calculator wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i>
-<h3>
-Mesurer le potentiel
-</h3>
-<p class="text-muted">
-Traiter et valoriser les données, mesurer l’impact et la faisabilité
-d’un projet pour calibrer une offre au plus proche des besoins
-identifiés.
-</p>
+<div class="step-arrow">
+›
 </div>
+<div class="step">
+<div class="step-num">
+03
 </div>
-<div class="col-lg-3 col-md-6 text-center">
-<div class="service-box">
-<p><i class="fa fa-4x fa-filter wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i></p>
-<h3>
-Valoriser les données
-</h3>
-<p class="text-muted">
-Développer des outils visuels et réactifs d’analyse, des graphiques, des
-tableaux de bord d’indicateurs, des cartographies, des rapports etc.,
-automatisés et reproductibles, statiques ou dynamiques pour le Web.
-</p>
+<div class="step-header">
+<p><i class="fa fa-tachometer" style="color:#e53e3e; font-size:18px;"></i>
+<span class="step-title">Piloter</span></p>
 </div>
+<ul class="step-list">
+<li>
+Pilotage et suivi dans le temps
+</li>
+<li>
+Construction d’observatoire
+</li>
+<li>
+Animation d’observatoire
+</li>
+<li>
+Définition d’indicateurs de suivi
+</li>
+</ul>
 </div>
-<div class="col-lg-3 col-md-6 text-center">
-<div class="service-box">
-<p><i class="fa fa-4x fa-graduation-cap wow bounceIn text-primary" style="visibility: visible; animation-name: bounceIn;"></i></p>
-<h3>
-Formation
-</h3>
-<p class="text-muted">
-Transmettre un savoir-faire pour vous permettre de vous approprier vos
-données à travers les ressources libres disponibles
-(<a href="https://rstudio.com/">RStudio</a> notamment).
-</p>
+<div class="step-arrow">
+›
+</div>
+<div class="step">
+<div class="step-num">
+04
+</div>
+<div class="step-header">
+<p><i class="fa fa-share-alt" style="color:#e53e3e; font-size:18px;"></i>
+<span class="step-title">Former, transmettre &amp; partager</span></p>
+</div>
+<ul class="step-list">
+<li>
+Formation R (initiation &amp; perfectionnement)
+</li>
+<li>
+Dataviz avec R (tidyverse, Shiny)
+</li>
+<li>
+Partage de connaissances et documentation
+</li>
+<li>
+Interopérabilité des données et des systèmes
+</li>
+<li>
+Standards ouverts et formats d’échange
+</li>
+</ul>
 </div>
 </div>
 </div>
