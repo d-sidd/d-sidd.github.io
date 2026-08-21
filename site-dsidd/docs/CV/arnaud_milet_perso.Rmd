@@ -23,7 +23,7 @@ Aside
 Contact {#contact}
 --------------------------------------------------------------------------------
 
-- <i class="fa fa-envelope"></i> arnaud.milet@d-sidd.com
+- <i class="fa fa-envelope"></i> arnaudmilet@mailo.com
 - <i class="fa fa-linkedin"></i> [linkedin.com/in/arnaud-milet](https://www.linkedin.com/in/arnaud-milet/)
 - <i class="fa-brands fa-github"></i> https://github.com/arnaudmilet
 - <i class="fa fa-phone"></i> +33 6 38 59 74 85
