@@ -109,7 +109,7 @@ Université Paul Valéry
 
 Montpellier
 
-2025-2026
+2025<br/>2026
 
 
 
@@ -117,7 +117,7 @@ Expérience professionnelle {data-icon=suitcase class="experience"}
 --------------------------------------------------------------------------------
 
 
-###  Statisticien spécialiste des données territoriales
+###  Data analyst spécialiste des données territoriales
 
 Entrepreneur associé à la CAE Crealead
 
@@ -133,7 +133,7 @@ Mission interministérielle Inserjeunes - beta.gouv:
 
 Distanciel, 3/5
 
-2023-2026
+2023<br/>2026
 
 
 ### Ingénieur d'études
@@ -142,7 +142,7 @@ Labex Entreprendre
 
 Montpellier
 
-2013-2014
+2013<br/>2014
 
 
 ### Consultant statisticien
@@ -160,7 +160,7 @@ CRT Bretagne
 
 Rennes
 
-2010-2011
+2010<br/>2011
 
 
 ### Chargé d'études statistiques
@@ -169,7 +169,7 @@ AID observatoire
 
 Lyon
 
-2008-2010
+2008<br/>2010
 
 
 Références {data-icon=laptop class="references"}
@@ -205,8 +205,8 @@ liste_references <- references_dsidd %>%
     references_li = glue::glue(
       "\n- {str_trim(`Désignation de la référence`)}, {str_trim(`Client final`)}, {str_trim(`Année d’exécution`)}. \n"
     )
-  ) %>%
-  pivot_longer(cols = -c(1:10,15:24),names_to = "Thématique" ) %>% 
+  ) %>% 
+  pivot_longer(cols = -c(1:10,16:25),names_to = "Thématique" ) %>% 
   drop_na(value) %>%
   arrange(`Thématique`,desc(`Année d’exécution`)) %>%
   select(`Thématique`,references_li)  %>%
@@ -216,8 +216,15 @@ liste_references <- references_dsidd %>%
   mutate(
     thematique_h3 = glue::glue("### {`Thématique`}"),
     references_li_rgp=map_chr(data,~glue::glue_collapse(.$references_li,sep="\n")),
-    thematique_rgp = glue::glue(thematique_h3,"\n\n",references_li_rgp,"\n\nRéférences d-sidd\n\n\n")
-  )
+    thematique_rgp = glue::glue(thematique_h3,"\n\n",references_li_rgp,"\n\nRéférences d-sidd\n\n\n"),
+    `Thématique`=factor(`Thématique`,
+                        levels = c("Développement économique et social", 
+                                   "Mesure d'impact & modélisation",
+                                   "Santé globale des territoires",
+                                   "Emploi/ Formation",
+                                   "Formations"))
+  ) %>% 
+  arrange(`Thématique`)
 
 
 # liste_references <-  references_dsidd %>% 
